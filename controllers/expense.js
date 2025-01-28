@@ -11,7 +11,7 @@ export const postExpense = async(req, res)=>{
     try{
     const validationErrors = vPostExpense(req.body);
     if(validationErrors){
-        return res.status(400).json(resObj(
+        return res.status(200).json(resObj(
             validationErrors,
             "Bad requested, invalide field!",
             false
@@ -233,7 +233,7 @@ export const putExpenseById = async (req , res) => {
     try{
         const validationErrors = vPutExpense(req.body);
         if(validationErrors){
-            return res.status(400).json(resObj(
+            return res.status(200).json(resObj(
                 validationErrors,
                 "Bad requested, invalide field!",
                 false

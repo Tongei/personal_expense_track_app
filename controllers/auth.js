@@ -16,7 +16,7 @@ export const postRegister = async (req, res) => {
     // Validate the request body
     const validationErrors = validateRegister(req.body);
     if (validationErrors) {
-      return res.status(400).json(resObj(validationErrors, 'Bad request! Invalid field.', false));
+      return res.status(200).json(resObj(validationErrors, 'Bad request! Invalid field.', false));
     }
 
     // Check if passwords match
@@ -56,7 +56,7 @@ export const postLogin = async(req, res) => {
   try{
     const validationErrors = vLogin(req.body);
     if (validationErrors) {
-      return res.status(400).json(resObj(validationErrors, 'Bad request! Invalid field.', false));
+      return res.status(200).json(resObj(validationErrors, 'Bad request! Invalid field.', false));
     }
     const {email, password} = req.body; 
     const result = await new AuthModel().login(email);
