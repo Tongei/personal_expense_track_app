@@ -196,7 +196,7 @@ export const getExpenseById = async(req, res) => {
                 arrDate.push(
                     {
                         id : r.expense_id,
-                        expnse : {
+                        expense : {
                             amount : r.amount,
                             category : r.category,
                             notes : r.notes,
