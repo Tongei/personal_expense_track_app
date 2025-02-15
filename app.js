@@ -2,12 +2,20 @@ import express from 'express';
 import dotenv from 'dotenv';
 import authRouter from './routes/auth.js';
 import expenseRouter from './routes/expense.js'
+import cors from 'cors'
 
 const app = express();
 
 // Middleware to parse JSON and URL-encoded data
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+app.use(cors({
+  origin : "*",
+  methods : "GET, POST, PUT, DELETE",
+  allowedHeaders : "Contrny-Type, Authorization",
+  credentials : true
+}))
 
 // Load environment variables
 dotenv.config();
